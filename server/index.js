@@ -1,6 +1,7 @@
 const express = require('express')
 const path = require('path');
 const mongoose = require('mongoose');
+const bodyParser = require("body-parser");
 
 const homeRouter = require('./routes/homeRouter');
 const productApi = require('./routes/productApi');
@@ -10,11 +11,27 @@ const orderApi = require('./routes/orderApi');
 const app = express();
 const PORT = 9000;
 
-app.use(express.static(path.join(__dirname, 'public')));
+
+
+
+
+
+// настройка CORS
+app.use(function(req, res, next) {
+    res.header("Access-Control-Allow-Origin", "*");
+    res.header("Access-Control-Allow-Headers", "Origin, X-Requested-With, Content-Type, Accept");
+    res.header("Access-Control-Allow-Methods", "GET, PATCH, PUT, POST, DELETE, OPTIONS");
+    next();
+});
+// app.use(bodyParser.urlencoded({ extended: false }));
+// app.use(express.urlencoded({extended:true}));
+
+app.use(bodyParser.json())
+
 
 app.use('/', homeRouter);
 
-app.use('/api', productApi);
+app.use('/productApi', productApi);
 app.use('/userApi', userApi);
 app.use('/orderApi', orderApi);
 

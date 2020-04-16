@@ -5,6 +5,7 @@ const productController = require('../controllers/productController');
 
 const router = Router();
 
-router.get('/apiProduct/add', productController.AddProductApi);
+router.post('/add', productController.AddProductApi);
+router.post('/getAll', productController.GetProductsAll);
 
 module.exports = router;

@@ -15,3 +15,13 @@ exports.AddProductApi = (req, res) =>{
     product.save();
     res.end('saved');
 }
+
+
+exports.GetProductsAll = async (req, res)=>{
+
+    const product = await Product.find();
+
+
+
+    res.send(JSON.stringify(product))
+}

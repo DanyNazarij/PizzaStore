@@ -44,6 +44,16 @@ exports.update = async (req, res)=>{
     res.end(JSON.stringify(result));
 }
 
+exports.checkUser = async (req, res)=>{
+    const user = await User.findOne({ email: req.body.email, password:req.body.password});
+
+    console.log(user);
+    if(user){
+        res.send('ok')
+    }
+    res.send('none')
+}
+
 
 async function getOrders(arrIdOrders) {
     let addOrders = [];
@@ -53,11 +63,5 @@ async function getOrders(arrIdOrders) {
     }
 
     return JSON.stringify(addOrders);
-    //  arrOrders = await arrIdOrders['order'].items.map(async (el) => {
-    //     const {order} = await Order.findById(el)
-    //     console.log(order);
-    //     return order;
-    // });
-    // console.log(arrOrders);
 
 }
