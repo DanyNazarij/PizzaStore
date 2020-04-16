@@ -1,0 +1,30 @@
+<footer class="page-footer font-small blue">
+  <div class="row">
+    <div class="col-md-4">
+      <img src="../../assets/mediaIcons/neropizzaclub.png"  id="im" alt="ico">
+    </div>
+
+    <div class="col-md-2" id="cl2">
+      <div class="footer-copyright text-center py-3" id="inf">{{year | date :'YYYY'}} Copyright | Best Team</div>
+
+    </div>
+    <!--  mb-4 -->
+    <div class="col-md-6" id="cl3" >
+
+      <div class="row" id="frt">Subscribe Now</div>
+
+      <form class="form-group">
+        <div class="row">
+          <input type="text" class="form-control-sm" name="email" placeholder="Your email"
+                 aria-label="Your email" aria-describedby="basic-addon2" />
+        </div>
+
+        <button class="btn btn-sm btn-danger" id="bt" type="button" (click)="addMail()">Надіслати</button>
+
+      </form>
+
+    </div>
+
+
+  </div>
+</footer>

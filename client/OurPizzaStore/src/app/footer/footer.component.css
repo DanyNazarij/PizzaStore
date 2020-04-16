@@ -1,0 +1,36 @@
+footer{
+  background-color: sienna;
+  height:100px;
+}
+#inf{
+  color: white;
+  font-size: 20px;
+}
+/* #drw{
+    width: 200px;
+    height: 100px;
+    margin-left:5%;
+}
+ */
+#frt{
+  color: white;
+  font-size: 20px;
+
+}
+#im{
+  background-size: 100%;
+  width: 150px;
+  height: 100px;
+  margin-left:5%;
+}
+#cl2{
+  margin-top: 30px;
+}
+#bt{
+  margin-top: 5px;
+  margin-left: 70px;
+}
+
+#cl3{
+  padding-left: 600px;
+}
