@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import {NgForm} from "@angular/forms";
 import {Router} from "@angular/router";
+import {UserService} from "../services/user.service"
 
 @Component({
   selector: 'app-registration',
@@ -10,18 +11,19 @@ import {Router} from "@angular/router";
 export class RegistrationComponent implements OnInit {
 
   onSubmit(form: NgForm){
-    // if(form.valid){
-    //   this.userService.register(form.value.userName, form.value.email ,form.value.password )
-    //   .subscribe(data=>{
-    //     console.log(data);
-    //     alertify.notify('You registered successfully', 'success', 5, function(){  console.log('dismissed'); });
-    //     this.router.navigate(['/login']);
-    //   },
-    // (error)=>{console.log(error);
-    //   });
-    // }
+
+    if(form.valid){
+      this.userService.register(form.value.userName, form.value.email ,form.value.phone , form.value.address , form.value.dateOfBirth,form.value.password )
+        .subscribe(data=>{
+            console.log(data);
+
+
+          },
+          (error)=>{console.log(error);
+          });
+    }
   }
-  constructor(/*private userService:UserService ,*/  private router :Router) { }
+  constructor(private userService:UserService ,  private router :Router) { }
 
 
   ngOnInit(): void {

@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import {ActivatedRoute, Router} from "@angular/router";
 
 @Component({
   selector: 'app-navbar',
@@ -7,9 +8,15 @@ import { Component, OnInit } from '@angular/core';
 })
 export class NavbarComponent implements OnInit {
 
-  constructor() { }
+  constructor(private route: ActivatedRoute, private router: Router) { }
 
   ngOnInit(): void {
   }
 
+  onAnchorClick() {
+    // this.route.fragment.subscribe ( f => {
+    //   const element = document.querySelector ( "#" + f )
+    //   if ( element ) element.scrollIntoView ( element )
+    // });
+  }
 }

@@ -2,23 +2,27 @@ const User = require('../models/User');
 const Order = require('../models/Order');
 const Product = require('../models/Product')
 
+const passwordHash = require ('password-hash');
+
 
 exports.addUserApi = (req, res)=>{
     const user = new User({
-        name: 'Vasya Melnychuk',
-        email: 'epro100live@gmail.com',
-        phone: '380976681039',
-        password: '123',
-        address: 'Some address',
-        birthday: Date.now()
+        name: req.body.name,
+        email: req.body.email,
+        phone: req.body.phone,
+        password: passwordHash.generate (req.body.password),
+        address: req.body.address,
+        birthday: req.body.birthday
     })
+    console.log(passwordHash.generate (req.body.password));
 
     user.save(err=>{
         console.log(err);
     })
 
-    res.end('user saved')
+    res.send('user saved')
 }
+
 
 exports.getOrders = async (req, res)=>{
     const arrIdOrders = await User.findById('5e96b393b096930904fb15b3').select('order');

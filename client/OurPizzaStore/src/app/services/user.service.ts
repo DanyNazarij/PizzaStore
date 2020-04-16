@@ -1,16 +1,17 @@
-import { Injectable } from '@angular/core';
+import {Injectable} from '@angular/core';
 import {HttpClient, HttpClientModule, HttpParams} from "@angular/common/http";
+import {Observable} from "rxjs";
 
 
 export interface UserI {
-  id: String,
-  discount: Number,
+  id?: String,
+  discount?: Number,
   name: String,
   email: String,
-  phone:String,
+  phone: String,
   password: String,
-  address:String,
-  birthday:Date
+  address: String,
+  birthday: Date
   order?: any[]
 
 }
@@ -21,15 +22,23 @@ export interface UserI {
 })
 export class UserService {
 
-  constructor(private httpClient:HttpClient) { }
+  constructor(private httpClient: HttpClient) {
+  }
 
 
   checkUser(email, password) {
-    // let params = new HttpParams();
-    // params.append('email', email);
-    // params.append('password', password);
-
-
     return this.httpClient.post('http://localhost:9000/userApi/check', {email, password});
+  }
+
+  register(userName: string, email: string, phone: string, address: string, dateOfBirth: Date, password: string): Observable<any> {
+    let user: UserI = {
+      name: userName,
+      email: email,
+      phone: phone,
+      address: address,
+      birthday: dateOfBirth,
+      password: password
+    }
+    return this.httpClient.post("http://localhost:9000/userApi/add", user);
   }
 }
