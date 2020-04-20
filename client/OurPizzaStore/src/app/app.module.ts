@@ -18,6 +18,12 @@ import { RegistrationComponent } from './registration/registration.component';
 import { LoginComponent } from './login/login.component';
 import { TemplatesComponent } from './templates/templates.component';
 import { ContentComponent } from './templates/content/content.component';
+import { ReviewComponent } from './review/review.component';
+import { MyOrderComponent } from './my-order/my-order.component';
+import { MyInfoComponent } from './my-info/my-info.component';
+import { EditPersonallInfoComponent } from './edit-personall-info/edit-personall-info.component';
+import { ChangePasswordComponent } from './change-password/change-password.component';
+import { NotFoundComponent } from './not-found/not-found.component';
 
 
 @NgModule({
@@ -35,6 +41,12 @@ import { ContentComponent } from './templates/content/content.component';
     LoginComponent,
     TemplatesComponent,
     ContentComponent,
+    ReviewComponent,
+    MyOrderComponent,
+    MyInfoComponent,
+    EditPersonallInfoComponent,
+    ChangePasswordComponent,
+    NotFoundComponent,
   ],
     imports: [
         BrowserModule,

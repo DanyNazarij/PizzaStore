@@ -22,9 +22,27 @@ export interface UserI {
 })
 export class UserService {
 
+
   constructor(private httpClient: HttpClient) {
   }
 
+
+  private isAuth: boolean = false;
+
+
+  login() {
+    this.isAuth = true;
+  }
+
+  logOut() {
+    this.isAuth = false;
+  }
+
+  isAuthenticated(): Promise<boolean> {
+    return new Promise<boolean>(resolve => {
+      resolve(this.isAuth);
+    });
+  }
 
   checkUser(email, password) {
     return this.httpClient.post('http://localhost:9000/userApi/check', {email, password});
@@ -40,5 +58,9 @@ export class UserService {
       password: password
     }
     return this.httpClient.post("http://localhost:9000/userApi/add", user);
+  }
+
+  getOrders(idUser):Observable<Array<any>>{
+    return this.httpClient.post<Array<any>>('http://localhost:9000/userApi/orders', {idUser})
   }
 }

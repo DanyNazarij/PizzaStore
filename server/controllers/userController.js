@@ -18,16 +18,15 @@ exports.addUserApi = (req, res)=>{
 
     user.save(err=>{
         console.log(err);
+        res.end(JSON.stringify({status: 'error', err}))
     })
 
-    res.send('user saved')
+    res.end(JSON.stringify({status: 'success registered'}))
 }
 
 
 exports.getOrders = async (req, res)=>{
-    const arrIdOrders = await User.findById('5e96b393b096930904fb15b3').select('order');
-
-
+    const arrIdOrders = await User.findById(req.body.idUser).select('order');
     const arrOrdersStr = await getOrders(arrIdOrders);
 
     res.send(arrOrdersStr);
@@ -51,12 +50,14 @@ exports.update = async (req, res)=>{
 exports.checkUser = async (req, res)=>{
     const user = await User.findOne({ email: req.body.email, password:req.body.password});
 
-    console.log(user);
+    // console.log(user);
+    // console.log('here');
     if(user){
-        res.send('ok')
+        res.end(JSON.stringify({user}))
     }
-    res.send('none')
+    res.end('none')
 }
+
 
 
 async function getOrders(arrIdOrders) {

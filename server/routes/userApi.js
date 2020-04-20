@@ -6,7 +6,7 @@ const router = Router();
 
 router.post('/add', userController.addUserApi)
 router.get('/update', userController.update);
-router.get('/orders', userController.getOrders)
+router.post('/orders', userController.getOrders)
 router.post('/check', userController.checkUser)
 
 module.exports = router;
