@@ -6,29 +6,44 @@
     <div class="text-center">
       Filter:
       <ul class="list-filter">
-        <li><a href="#">All</a></li>
-        <li><a href="#">Meat pizza</a></li>
-        <li><a href="#">Vegetarian pizza</a></li>
-        <li><a href="#">Fish pizza</a></li>
+        <li><a (click)="setFilter('')">All</a></li>
+        <li><a (click)="setFilter('Meat')">Meat pizza</a></li>
+        <li><a (click)="setFilter('Vegeterian')">Vegetarian pizza</a></li>
+        <li><a (click)="setFilter('Fish')">Fish pizza</a></li>
       </ul>
     </div>
-<!--    -->
+    <!--    -->
 
 
     <div class="row">
-      <div class="col-md-4" *ngFor="let product of products">
+      <div class="col-md-4" *ngFor="let product of products | sortProduct: filter">
         <div class="product-preview">
           <div class="product-photo">
             <img alt="product" src="assets/images/products/1.png">
           </div>
           <h3 class="product-title">Pepperoni Burner</h3>
-          <p class="product-info">Шампіньйони свіжі, моцарелла, шампіньйони консервовані, соус пелаті або соус вершковий.</p>
+          <p class="product-info">
+            <span *ngFor="let component of product.nutrients">{{component}} </span>
+          </p>
+          <div>
+            <div *ngFor="let value of product.price; let i = index" class="my-checkBox">
+              <label for="{{value._id}}"> {{value.size}} - {{value.value}} </label>
+              <input type="radio" name="{{product._id}}" id="{{value._id}}"
+                     *ngIf="!i" checked
+                     (click)="setPrice(value.value, product._id)"
+              >
+              <input type="radio" name="{{product._id}}" id="{{value._id}}"
+                     *ngIf="i"
+                     (click)="setPrice(value.value, product._id)"
+              >
+            </div>
+          </div>
           <div class="product-price" style="font-size: 30px;">
-            <sub>₴</sub>99.<sup>99</sup>
+            <sub>₴</sub><span [id]="product._id">{{product.price[0].value}}</span><sup>99</sup>
             <a href="#" class="cart-trigger button-clean button-text-small">Order now</a>
           </div>
-        </div><!-- .product-preview -->
-      </div><!-- .col-md-4 -->
+        </div>
+      </div>
     </div>
   </div>
 

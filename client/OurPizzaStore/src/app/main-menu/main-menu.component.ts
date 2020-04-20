@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import {Component, ElementRef, OnInit, ViewChild} from '@angular/core';
 import {ProductI, ProductService} from "../services/product.service";
 import {ActivatedRoute, Router} from "@angular/router";
 
@@ -10,7 +10,9 @@ import {ActivatedRoute, Router} from "@angular/router";
 export class MainMenuComponent implements OnInit {
 
   products:ProductI[] = []
+  pricePizza: number;
 
+  filter:string = '';
 
 
 
@@ -18,15 +20,22 @@ export class MainMenuComponent implements OnInit {
               private route: ActivatedRoute,
               private router: Router) { }
 
+
   ngOnInit(): void {
 
     this.productService.getProducts().subscribe(res=>{
       this.products = res;
+      console.log(this.products)
     })
-
-
   }
 
 
+  setPrice(value: any, id) {
+    let price = document.getElementById(id);
+    price.textContent = value;
+  }
 
+  setFilter(s: string) {
+    this.filter = s;
+  }
 }

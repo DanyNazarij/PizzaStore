@@ -26,6 +26,7 @@ import { ChangePasswordComponent } from './change-password/change-password.compo
 import { NotFoundComponent } from './not-found/not-found.component';
 import { MapComponent } from './map/map.component';
 import { SocialComponent } from './social/social.component';
+import { SortProductPipe } from './pipes/sort-product.pipe';
 
 
 @NgModule({
@@ -51,6 +52,7 @@ import { SocialComponent } from './social/social.component';
     NotFoundComponent,
     MapComponent,
     SocialComponent,
+    SortProductPipe,
   ],
     imports: [
         BrowserModule,
