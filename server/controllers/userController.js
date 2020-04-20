@@ -37,12 +37,12 @@ exports.getOrders = async (req, res)=>{
 exports.update = async (req, res)=>{
 
 
-    const result = await User.updateOne({_id: '5e96b393b096930904fb15b3'}, {$set:{
-            name: 'Vasya Melnychuk!!!',
-            email: 'epro100live@gmail.com',
-            phone: '380976681039',
-            address: 'Some address',
-            birthday: Date.now()
+    const result = await User.updateOne({_id: req.body.data.id}, {$set:{
+            name: req.body.data.name,
+            email: req.body.data.email,
+            phone: req.body.data.phone,
+            address: req.body.data.address,
+            birthday: req.body.data.birthday
     }});
     res.end(JSON.stringify(result));
 }

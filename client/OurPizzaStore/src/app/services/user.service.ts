@@ -63,4 +63,8 @@ export class UserService {
   getOrders(idUser):Observable<Array<any>>{
     return this.httpClient.post<Array<any>>('http://localhost:9000/userApi/orders', {idUser})
   }
+
+  editUserData(data){
+    return this.httpClient.post('http://localhost:9000/userApi/update', {data})
+  }
 }

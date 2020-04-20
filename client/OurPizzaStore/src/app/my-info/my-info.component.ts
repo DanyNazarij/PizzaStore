@@ -11,7 +11,10 @@ import {Subscription} from "rxjs";
 })
 export class MyInfoComponent implements OnInit {
 
-  user:UserI;
+  user:UserI = {
+    address: "", birthday: undefined, email: "", name: "", password: "", phone: ""
+
+  };
   private getUser: Subscription;
 
   constructor(private userService:UserService, private route:Router, private _dataService: DataService) {}
