@@ -1,32 +1,44 @@
-<nav class="navbar navbar-expand-lg navbar-light bg-light">
-  <a class="navbar-brand" href="#">PizzaDelivery</a>
-  <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
-    <span class="navbar-toggler-icon"></span>
-  </button>
 
-  <div class="collapse navbar-collapse  justify-content-end" id="navbarSupportedContent">
-    <ul class="nav">
-      <li class="nav-item">
-        <a class="nav-link " href="#">Home</a>
-      </li>
-      <li class="nav-item">
-        <a class="nav-link " href="#">Contact</a>
-      </li>
-      <li class="nav-item">
-        <a class="nav-link "  [routerLink]="['/']" fragment="test" (click)="onAnchorClick()">Menu</a>
-      </li>
-      <li class="nav-item">
-        <a class="nav-link " [routerLink]="['/my-info']">Delivery</a>
-      </li>
-      <li class="nav-item">
-        <a class="nav-link " href="#">About us</a>
-      </li>
-      <li class="nav-item">
-        <a class="nav-link active" href="#">Feedback</a>
-      </li>
-      <li class="nav-item">
-        <a class="nav-link active" href="#">Cart</a>
-      </li>
-    </ul>
+<div id="main-navigation-container">
+  <div id="main-navigation-inner">
+    <div class="container">
+      <div class="relative-container clearfix">
+        <div id="main-navigation-button"><i class="fa fa-reorder"></i></div>
+        <div class="pull-left">
+          <div class="centered-columns">
+            <div class="centered-column">
+              <img class="page-logo" alt="logo" src="assets/images/logo1.png">
+            </div>
+            <div class="centered-column hidden-xs">
+              <h1 class="site-name">PizzaDelivery</h1>
+
+            </div>
+          </div>
+        </div>
+        <nav id="main-navigation" style="font-size: 15px;">
+          <ul id="one-page-nav">
+            <li class="active">
+              <a href="#section-intro">Home</a>
+            </li>
+            <li>
+              <a href="#section-about">About Us</a>
+            </li>
+            <li>
+              <a href="#section-menu">Menu</a>
+            </li>
+            <li>
+              <a href="#section-delivery">Delivery</a>
+            </li>
+            <li>
+              <a href="#section-contact">Contact</a>
+            </li>
+            <li>
+              <div class="menu-item has-small-label cart-trigger"><i class="fa fa-shopping-cart"></i></div>
+            </li>
+          </ul>
+        </nav>
+      </div>
+    </div>
   </div>
-</nav>
+</div>
+<div id="main-navigation-placeholder"></div>

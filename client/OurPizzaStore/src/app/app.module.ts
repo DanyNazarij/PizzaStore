@@ -24,6 +24,8 @@ import { MyInfoComponent } from './my-info/my-info.component';
 import { EditPersonallInfoComponent } from './edit-personall-info/edit-personall-info.component';
 import { ChangePasswordComponent } from './change-password/change-password.component';
 import { NotFoundComponent } from './not-found/not-found.component';
+import { MapComponent } from './map/map.component';
+import { SocialComponent } from './social/social.component';
 
 
 @NgModule({
@@ -47,6 +49,8 @@ import { NotFoundComponent } from './not-found/not-found.component';
     EditPersonallInfoComponent,
     ChangePasswordComponent,
     NotFoundComponent,
+    MapComponent,
+    SocialComponent,
   ],
     imports: [
         BrowserModule,

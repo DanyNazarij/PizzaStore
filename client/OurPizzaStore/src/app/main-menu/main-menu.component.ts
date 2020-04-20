@@ -22,7 +22,6 @@ export class MainMenuComponent implements OnInit {
 
     this.productService.getProducts().subscribe(res=>{
       this.products = res;
-      console.log(this.products);
     })
 
 

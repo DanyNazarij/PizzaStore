@@ -1,14 +1,35 @@
-<div class="row">
-  <div *ngFor="let product of products">
-    <div class="col">
-      <div class="card" style="width: 18rem;">
-        <img src="" class="card-img-top" alt="...">
-        <div class="card-body">
-          <h5 class="card-title">{{product.productName}}</h5>
-          <p class="card-text">{{product.description}}</p>
-          <a href="#" class="btn btn-primary">Add to cart</a>
-        </div>
-      </div>
+<section id="section-menu">
+  <div class="container">
+    <h1 class="bottom-line">Menu</h1>
+
+
+    <div class="text-center">
+      Filter:
+      <ul class="list-filter">
+        <li><a href="#">All</a></li>
+        <li><a href="#">Meat pizza</a></li>
+        <li><a href="#">Vegetarian pizza</a></li>
+        <li><a href="#">Fish pizza</a></li>
+      </ul>
+    </div>
+<!--    -->
+
+
+    <div class="row">
+      <div class="col-md-4" *ngFor="let product of products">
+        <div class="product-preview">
+          <div class="product-photo">
+            <img alt="product" src="assets/images/products/1.png">
+          </div>
+          <h3 class="product-title">Pepperoni Burner</h3>
+          <p class="product-info">Шампіньйони свіжі, моцарелла, шампіньйони консервовані, соус пелаті або соус вершковий.</p>
+          <div class="product-price" style="font-size: 30px;">
+            <sub>₴</sub>99.<sup>99</sup>
+            <a href="#" class="cart-trigger button-clean button-text-small">Order now</a>
+          </div>
+        </div><!-- .product-preview -->
+      </div><!-- .col-md-4 -->
     </div>
   </div>
-</div>
+
+</section>
