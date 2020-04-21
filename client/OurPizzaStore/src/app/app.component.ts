@@ -9,6 +9,11 @@ export class AppComponent {
   title = 'OurPizzaStore';
   lat: number = 49.8477485;
   lng: number = 24.0155463;
+
+
+
+
+
 }
 
 

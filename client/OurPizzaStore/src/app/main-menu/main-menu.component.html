@@ -16,7 +16,7 @@
 
 
     <div class="row">
-      <div class="col-md-4" *ngFor="let product of products | sortProduct: filter">
+      <div class="col-md-4" *ngFor="let product of products | sortProduct: filter | paginate: { itemsPerPage: 3, currentPage: page }">
         <div class="product-preview">
           <div class="product-photo">
             <img alt="product" src="assets/images/products/1.png">
@@ -44,6 +44,9 @@
           </div>
         </div>
       </div>
+    </div>
+    <div class="col text-center" [ngStyle]="{fontSize: '12px'}">
+      <pagination-controls (pageChange)="page = $event"></pagination-controls>
     </div>
   </div>
 

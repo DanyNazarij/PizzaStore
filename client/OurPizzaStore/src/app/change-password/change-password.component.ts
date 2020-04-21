@@ -11,15 +11,7 @@ import {ActivatedRoute, Router} from "@angular/router";
 export class ChangePasswordComponent implements OnInit {
 
   form: NgForm;
-  user: UserI={
-    name: 'asd',
-    address: "",
-    birthday: undefined,
-    email: "",
-    password: "",
-    phone: "",
-
-  };
+  user: UserI;
 
   constructor(private userService: UserService,
               private router: Router,

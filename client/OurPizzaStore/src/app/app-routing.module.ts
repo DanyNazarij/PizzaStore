@@ -10,12 +10,14 @@ import {ReviewComponent} from "./review/review.component";
 import {NotFoundComponent} from "./not-found/not-found.component";
 import {AuthenticationGuard} from "./authentication.guard";
 import {MyOrderComponent} from "./my-order/my-order.component";
+import {CartComponent} from "./cart/cart.component";
 
 
 const routes: Routes = [
   {path: '', component: TemplatesComponent},
   {path: 'login', component: LoginComponent},
   {path: 'register', component: RegistrationComponent},
+  {path: 'cart', component: CartComponent},
   {path: 'my-info', component:MyInfoComponent, canActivate:[AuthenticationGuard]},
   {path: 'my-order', component:MyOrderComponent, canActivate:[AuthenticationGuard]},
   {path: 'edit-info', component:EditPersonallInfoComponent,  canActivate:[AuthenticationGuard]},

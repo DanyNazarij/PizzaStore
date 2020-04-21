@@ -27,6 +27,8 @@ import { NotFoundComponent } from './not-found/not-found.component';
 import { MapComponent } from './map/map.component';
 import { SocialComponent } from './social/social.component';
 import { SortProductPipe } from './pipes/sort-product.pipe';
+import { CartComponent } from './cart/cart.component';
+import {NgxPaginationModule} from "ngx-pagination";
 
 
 @NgModule({
@@ -53,9 +55,11 @@ import { SortProductPipe } from './pipes/sort-product.pipe';
     MapComponent,
     SocialComponent,
     SortProductPipe,
+    CartComponent,
   ],
     imports: [
         BrowserModule,
+        NgxPaginationModule,
         AppRoutingModule,
         HttpClientModule,
         FormsModule,

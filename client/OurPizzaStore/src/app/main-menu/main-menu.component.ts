@@ -9,6 +9,9 @@ import {ActivatedRoute, Router} from "@angular/router";
 })
 export class MainMenuComponent implements OnInit {
 
+  page: number = 1;
+
+
   products:ProductI[] = []
   pricePizza: number;
 
