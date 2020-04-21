@@ -32,8 +32,21 @@ export class MyInfoComponent implements OnInit {
   signOut(){
 
     this._dataService.setStatusUser(false);
+    let clearUser:UserI ={address: "", birthday: undefined, email: "", name: "", password: "", phone: ""};
+    this._dataService.setUser(clearUser);
     this.userService.logOut();
     this.route.navigate(['/'])
+
+
+    if(localStorage.getItem('cart')) {
+      this._dataService.setProduct(JSON.parse(localStorage.getItem('cart')));
+    }else{
+      localStorage.setItem('cart', JSON.stringify([]))
+      this._dataService.setProduct(JSON.parse(localStorage.getItem('cart')));
+    }
+
+
+
   }
 
 }

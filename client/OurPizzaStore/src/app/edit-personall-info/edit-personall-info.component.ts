@@ -57,9 +57,6 @@ export class EditPersonallInfoComponent implements OnInit {
 
       }
 
-
-
-
       this.userService.editUserData(newUser).subscribe(response=>{
         console.log(response)
       });

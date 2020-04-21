@@ -29,6 +29,18 @@ export class ProductService {
     return this.httpClient.post<ProductI[]>('http://localhost:9000/productApi/getByIds', {arrProdIds})
   }
 
+  makeOrder(idUser, product, amountPrice){
+    return this.httpClient.post('http://localhost:9000/orderApi/add', {idUser, product,amountPrice})
+  }
+
+
+  saveCartForUser(idUser, product, amountPrice){
+    return this.httpClient.post('http://localhost:9000/cartApi/add', {idUser, product,amountPrice})
+  }
+
+  getCartUser(idUser){
+    return this.httpClient.post('http://localhost:9000/cartApi/get', {idUser})
+  }
 
 
 }

@@ -4,6 +4,7 @@ import {Router} from "@angular/router";
 import {UserService} from "../services/user.service";
 import {Subscription} from "rxjs";
 import {DataService} from "../data.service";
+import {ProductService} from "../services/product.service";
 
 @Component({
   selector: 'app-login',
@@ -15,7 +16,7 @@ export class LoginComponent implements OnInit, OnDestroy {
   form:FormGroup;
   private getStatusUserSubscription: Subscription;
 
-  constructor(private user:UserService, private route: Router, private _dataService: DataService) { }
+  constructor(private user:UserService, private route: Router, private _dataService: DataService, private productService:ProductService) { }
 
   ngOnInit(): void {
     this.form = new FormGroup({
@@ -35,6 +36,23 @@ export class LoginComponent implements OnInit, OnDestroy {
           this._dataService.setUser(response['user']);
           this._dataService.setIdUser(response['user']._id)
           this.route.navigate(['/my-info'])
+
+          this.productService.getCartUser(response['user']._id).subscribe(res=>{
+            console.log(res);
+            if(res['status'] === 'exist'){
+              let arrProd = res['cart'].order['items'].map(el=>{
+                return {
+                  id: el['idProduct'],
+                  price: el['value'],
+                  name: el['name'],
+                  type: el['productType'],
+                  kind: el['kind'],
+                  count: el['count'],
+                }
+              })
+              this._dataService.setProduct(arrProd)
+            }
+          })
 
 
 

@@ -24,6 +24,11 @@ const userSchema = new Schema({
           require:true
       }]
     },
+    cart:[{
+        type: Schema.Types.ObjectId,
+        ref: 'Cart',
+        require:true
+    }],
     discount:{
       type:Number,
       default: 0

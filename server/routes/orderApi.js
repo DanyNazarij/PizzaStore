@@ -4,6 +4,6 @@ const orderController = require('../controllers/orderController');
 
 const router = Router();
 
-router.get('/add', orderController.addOrderApi)
+router.post('/add', orderController.addOrderApi)
 
 module.exports = router;

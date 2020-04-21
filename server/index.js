@@ -7,6 +7,7 @@ const homeRouter = require('./routes/homeRouter');
 const productApi = require('./routes/productApi');
 const userApi = require('./routes/userApi');
 const orderApi = require('./routes/orderApi');
+const cartApi = require('./routes/cartRouter')
 
 const app = express();
 const PORT = 9000;
@@ -34,6 +35,7 @@ app.use('/', homeRouter);
 app.use('/productApi', productApi);
 app.use('/userApi', userApi);
 app.use('/orderApi', orderApi);
+app.use('/cartApi', cartApi);
 
 
 app.use(function (req, res) {

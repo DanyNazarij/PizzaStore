@@ -1,8 +1,8 @@
 const {Schema, model} = require('mongoose');
 
-const orderSchema = Schema({
+const cartSchema = Schema({
+    idUser: String,
     order: {
-        idUser: String,
         items: [
             {
                 idProduct: String,
@@ -16,14 +16,9 @@ const orderSchema = Schema({
         price: {
             type: Number,
             required: true
-        },
-        date: {
-            type: Date,
-            default: Date.now()
         }
-
     }
 })
 
 
-module.exports = model('Order', orderSchema)
+module.exports = model('Cart', cartSchema)

@@ -29,6 +29,7 @@ import { SocialComponent } from './social/social.component';
 import { SortProductPipe } from './pipes/sort-product.pipe';
 import { CartComponent } from './cart/cart.component';
 import {NgxPaginationModule} from "ngx-pagination";
+import { MakeOrderComponent } from './make-order/make-order.component';
 
 
 @NgModule({
@@ -56,6 +57,7 @@ import {NgxPaginationModule} from "ngx-pagination";
     SocialComponent,
     SortProductPipe,
     CartComponent,
+    MakeOrderComponent,
   ],
     imports: [
         BrowserModule,

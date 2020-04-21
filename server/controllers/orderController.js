@@ -4,41 +4,45 @@ const Product = require('../models/Product')
 
 
 exports.addOrderApi = async (req, res) => {
-
     const order = new Order({
         order: {
-            items: [
-                {
-                    productType: 'pizza',
-                    name: "Mashroom",
-                    size: 'S',
-                    value: 175,
-                    img: '',
-                    kind: 'vegeterian',
-                    nutrients: ['шампынйони свіжі', "моцарела вчорашня", "шампіньони консервовані", "соус пелатті", "корж"]
+            idUser: req.body.idUser || 'guest',
+            items: req.body.product.map(el=>{
+                return prod = {
+                    idProduct: el.id,
+                    productType:el.type,
+                    name:el.name,
+                    value:el.price,
+                    img:'',
+                    kind:el.kind,
+                    count:el.count,
                 }
-            ],
-            price: 175 * 2
+            }),
+            price: req.body['amountPrice']
         }
     })
 
-    const orderItems = await User.findById('5e96b393b096930904fb15b3').select('order');
-    let {order: {items: [...arrOrder]}} = orderItems;
-    arrOrder.push(order._id)
+
 
     order.save(err => {
         console.log(err);
     })
 
+    if(req.body.idUser){
+        const orderItems = await User.findById('5e96b393b096930904fb15b3').select('order');
+        let {order: {items: [...arrOrder]}} = orderItems;
+        arrOrder.push(order._id)
 
-    await User.updateOne({_id: '5e96b393b096930904fb15b3'}, {
-        $set: {
-            order: {
-                items: arrOrder
+        await User.updateOne({_id: req.body.idUser}, {
+            $set: {
+                order: {
+                    items: arrOrder
+                }
             }
-        }
-    });
+        });
+    }
 
 
-    res.end('order saved')
+
+    res.end(JSON.stringify({status:"order saved"}))
 }

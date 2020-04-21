@@ -16,8 +16,6 @@ export class RegistrationComponent implements OnInit {
       this.userService.register(form.value.userName, form.value.email ,form.value.phone , form.value.address , form.value.dateOfBirth,form.value.password )
         .subscribe(data=>{
             console.log(data);
-
-
           },
           (error)=>{console.log(error);
           });

@@ -40,7 +40,9 @@
           </div>
           <div class="product-price" style="font-size: 30px;">
             <sub>₴</sub><span [id]="product._id"
-                              attr.data-name="{{product.productName}}">
+                              attr.data-name="{{product.productName}}"
+                              attr.data-kind="{{product.kind}}"
+                              attr.data-type="{{product.productType}}">
             {{product.price[0].value}}
           </span><sup>99</sup>
             <button class="cart-trigger button-clean button-text-small" (click)="addToCart(product._id)">Order now</button>

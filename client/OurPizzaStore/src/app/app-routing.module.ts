@@ -11,6 +11,7 @@ import {NotFoundComponent} from "./not-found/not-found.component";
 import {AuthenticationGuard} from "./authentication.guard";
 import {MyOrderComponent} from "./my-order/my-order.component";
 import {CartComponent} from "./cart/cart.component";
+import {MakeOrderComponent} from "./make-order/make-order.component";
 
 
 const routes: Routes = [
@@ -18,6 +19,7 @@ const routes: Routes = [
   {path: 'login', component: LoginComponent},
   {path: 'register', component: RegistrationComponent},
   {path: 'cart', component: CartComponent},
+  {path: 'order', component: MakeOrderComponent},
   {path: 'my-info', component:MyInfoComponent, canActivate:[AuthenticationGuard]},
   {path: 'my-order', component:MyOrderComponent, canActivate:[AuthenticationGuard]},
   {path: 'edit-info', component:EditPersonallInfoComponent,  canActivate:[AuthenticationGuard]},

@@ -16,6 +16,8 @@ export class AppComponent implements OnInit{
   }
 
   ngOnInit(){
+
+
     if(localStorage.getItem('cart')){
       this._dataService.setProduct(JSON.parse(localStorage.getItem('cart')));
     }
