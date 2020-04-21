@@ -20,8 +20,15 @@ exports.AddProductApi = (req, res) =>{
 exports.GetProductsAll = async (req, res)=>{
 
     const product = await Product.find();
-
-
-
     res.send(JSON.stringify(product))
+}
+
+exports.getByIds = async (req, res)=>{
+    let arrProduct = [];
+    let idsProducts = req.body.arrProdIds;
+    for (let i = 0; i < idsProducts.length; i++){
+        arrProduct.push(await Product.findById(idsProducts[i].id))
+    }
+    res.end(JSON.stringify(arrProduct));
+
 }

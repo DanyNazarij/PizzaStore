@@ -31,15 +31,23 @@ export class DataService {
     return this.isUser$.asObservable();
   }
 
-
   public setIdUser(newNavTitle: string): void {
-    // Sets new value, every entity, which is subscribed to changes
-    // (`getNavTitle().subscribe(...)`) will get new value every time it changes
     this.navTitle$.next(newNavTitle);
   }
 
   public getIdUser(): Observable<string> {
-    // Allow to `subscribe` on changes and get the value every time it changes
     return this.navTitle$.asObservable();
+  }
+
+
+  //////////////////////////////////////
+  ///////////////for cart///////////////
+
+  private inCartProduct$:BehaviorSubject<any[]> = new BehaviorSubject<any[]>([]);
+  public setProduct(newProduct:any[]){
+    this.inCartProduct$.next(newProduct);
+  }
+  public getProductInCart():Observable<any[]> {
+    return this.inCartProduct$.asObservable();
   }
 }

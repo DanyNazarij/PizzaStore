@@ -23,9 +23,12 @@ export class ProductService {
   constructor(private httpClient:HttpClient) { }
 
   getProducts():Observable<ProductI[]>{
-
   return this.httpClient.post<ProductI[]>('http://localhost:9000/productApi/getAll', {});
   }
+  getProductById(arrProdIds):Observable<ProductI[]>{
+    return this.httpClient.post<ProductI[]>('http://localhost:9000/productApi/getByIds', {arrProdIds})
+  }
+
 
 
 }

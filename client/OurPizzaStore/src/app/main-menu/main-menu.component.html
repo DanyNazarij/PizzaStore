@@ -21,7 +21,7 @@
           <div class="product-photo">
             <img alt="product" src="assets/images/products/1.png">
           </div>
-          <h3 class="product-title">Pepperoni Burner</h3>
+          <h3 class="product-title">{{product.productName}}</h3>
           <p class="product-info">
             <span *ngFor="let component of product.nutrients">{{component}} </span>
           </p>
@@ -39,8 +39,11 @@
             </div>
           </div>
           <div class="product-price" style="font-size: 30px;">
-            <sub>₴</sub><span [id]="product._id">{{product.price[0].value}}</span><sup>99</sup>
-            <a href="#" class="cart-trigger button-clean button-text-small">Order now</a>
+            <sub>₴</sub><span [id]="product._id"
+                              attr.data-name="{{product.productName}}">
+            {{product.price[0].value}}
+          </span><sup>99</sup>
+            <button class="cart-trigger button-clean button-text-small" (click)="addToCart(product._id)">Order now</button>
           </div>
         </div>
       </div>

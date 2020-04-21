@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import {ActivatedRoute, Router} from "@angular/router";
+import {DataService} from "../data.service";
 
 @Component({
   selector: 'app-navbar',
@@ -7,10 +8,16 @@ import {ActivatedRoute, Router} from "@angular/router";
   styleUrls: ['./navbar.component.css']
 })
 export class NavbarComponent implements OnInit {
+  amountProduct: number;
+  dataProducts:any[];
 
-  constructor(private route: ActivatedRoute, private router: Router) { }
+
+  constructor(private route: ActivatedRoute, private router: Router,private _dataService:DataService,) { }
 
   ngOnInit(): void {
+    this._dataService.getProductInCart().subscribe(product=>{
+      this.amountProduct = product.length
+    });
   }
 
   onAnchorClick() {
