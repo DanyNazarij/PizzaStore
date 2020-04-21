@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import {ProductI, ProductService} from "../services/product.service";
 import {DataService} from "../data.service";
 import {Subscription} from "rxjs";
+import alertify  from 'alertifyjs';
 
 @Component({
   selector: 'app-cart',
@@ -43,6 +44,8 @@ export class CartComponent implements OnInit {
     this._dataService.getProductInCart().subscribe(cart => {
       localStorage.setItem('cart', JSON.stringify(cart))
     })
-
+    alertify.set('notifier','position', 'top-center');
+    alertify.success('Current position : ' + alertify.get('notifier','position'));
+    alertify.notify('sample', 'success', 5, function(){  console.log('dismissed'); });
   }
 }

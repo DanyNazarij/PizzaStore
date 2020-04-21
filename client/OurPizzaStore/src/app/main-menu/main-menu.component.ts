@@ -3,6 +3,7 @@ import {ProductI, ProductService} from "../services/product.service";
 import {ActivatedRoute, Router} from "@angular/router";
 import {DataService} from "../data.service";
 import {Subscription} from "rxjs";
+import alertify  from 'alertifyjs';
 
 @Component({
   selector: 'app-main-menu',
@@ -31,7 +32,6 @@ export class MainMenuComponent implements OnInit {
 
     this.productService.getProducts().subscribe(res=>{
       this.products = res;
-      console.log(this.products)
     })
 
   }
@@ -66,11 +66,10 @@ export class MainMenuComponent implements OnInit {
     this._dataService.setProduct(arrProducts);
     this.getCart = this._dataService.getProductInCart().subscribe(cart => {
       arrProducts = cart
-      console.log('here')
       localStorage.setItem('cart', JSON.stringify(cart))
     })
 
-
+    alertify.notify('Ready!');
 
 
   }
