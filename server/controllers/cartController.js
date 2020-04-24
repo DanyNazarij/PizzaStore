@@ -4,6 +4,7 @@ const Cart = require('../models/Cart')
 
 exports.addCartApi = async (req, res) => {
 
+    console.log(req.body.idUser)
     let isExistCart = await Cart.find({idUser: req.body.idUser});
 
     if (!isExistCart) {

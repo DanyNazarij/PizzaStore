@@ -56,18 +56,23 @@ export class CartComponent implements OnInit, OnDestroy {
     }else{
       newArrProd = [...this.dataProducts.slice(0, idx), ...this.dataProducts.slice(idx+1)];
     }
-    this._dataService.setProduct(newArrProd);
-
-
 
     //запис даних
-
-    if(this.isUser.name){
-      this.productService.saveCartForUser(this.isUser['_id'], newArrProd, this.amountPrice)
+    if(this.isUser['_id']){
+      this.productService.saveCartForUser(this.isUser['_id'], newArrProd, this.amountPrice).subscribe(res=>{
+        console.log(res)
+      },error => {console.log(error)})
     }
     else{
       localStorage.setItem('cart', JSON.stringify(newArrProd));
     }
+
+
+    this._dataService.setProduct(newArrProd);
+
+
+
+
 
 
     //не працюэ

@@ -50,8 +50,6 @@ exports.update = async (req, res)=>{
 exports.checkUser = async (req, res)=>{
     const user = await User.findOne({ email: req.body.email, password:req.body.password});
 
-    // console.log(user);
-    // console.log('here');
     if(user){
         res.end(JSON.stringify({user}))
     }

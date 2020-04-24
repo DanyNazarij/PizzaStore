@@ -29,7 +29,7 @@ exports.addOrderApi = async (req, res) => {
     })
 
     if(req.body.idUser){
-        const orderItems = await User.findById('5e96b393b096930904fb15b3').select('order');
+        const orderItems = await User.findById(req.body.idUser).select('order');
         let {order: {items: [...arrOrder]}} = orderItems;
         arrOrder.push(order._id)
 

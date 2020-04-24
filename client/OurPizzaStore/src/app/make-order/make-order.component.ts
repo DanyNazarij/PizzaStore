@@ -21,8 +21,6 @@ export class MakeOrderComponent implements OnInit {
               private userService:UserService) { }
 
 
-
-
   ngOnInit(): void {
     this._dataService.getProductInCart().subscribe(product=>{
       this.dataProducts = product;
@@ -40,9 +38,6 @@ export class MakeOrderComponent implements OnInit {
         phone: new FormControl(user.phone, [Validators.required, Validators.minLength(9)])
       })
     })
-
-
-
   }
 
   deleteOneItem(id: any, price:number) {
@@ -57,21 +52,33 @@ export class MakeOrderComponent implements OnInit {
     }
     this._dataService.setProduct(newArrProd);
 
-    this._dataService.getProductInCart().subscribe(cart => {
-      localStorage.setItem('cart', JSON.stringify(cart))
-    })
+
+    if(this.user['_id']){
+      this.productService.saveCartForUser(this.user['_id'], newArrProd, this.amountPrice).subscribe(res=>{
+        console.log(res)
+      },error => {console.log(error)})
+    }
+    else{
+      localStorage.setItem('cart', JSON.stringify(newArrProd));
+    }
+
   }
 
   submit() {
     if(this.form.valid) {
-
-
       this.productService.makeOrder(this.user['_id'],
         this.dataProducts,
         this.amountPrice)
         .subscribe(response => {
         console.log(response)
-      });
+          this._dataService.setProduct([]);
+          if(this.user['_id']){
+            this.productService.saveCartForUser(this.user['_id'], [], this.amountPrice)
+          }
+          else{
+            localStorage.setItem('cart', JSON.stringify([]));
+          }
+      }, error => {console.log(error)});
     }
   }
 }

@@ -94,7 +94,6 @@ export class MainMenuComponent implements OnInit, OnDestroy {
       arrProducts[idx].count += 1
     }
 
-
     //запис у сервіс
     this._dataService.setProduct(arrProducts);
 

@@ -1,0 +1,10 @@
+.oneCol{
+  border: 1px dashed #ff3728;
+  font-size: 14px;
+}
+
+.nameProp {
+  color: darkred;
+  text-transform: capitalize;
+  text-decoration: dashed;
+}

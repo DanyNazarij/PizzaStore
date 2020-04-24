@@ -38,7 +38,6 @@ export class LoginComponent implements OnInit, OnDestroy {
           this.route.navigate(['/my-info'])
 
           this.productService.getCartUser(response['user']._id).subscribe(res=>{
-            console.log(res);
             if(res['status'] === 'exist'){
               let arrProd = res['cart'].order['items'].map(el=>{
                 return {
@@ -53,9 +52,6 @@ export class LoginComponent implements OnInit, OnDestroy {
               this._dataService.setProduct(arrProd)
             }
           })
-
-
-
           // console.log(this.user.isAuthenticated())
         }
 
