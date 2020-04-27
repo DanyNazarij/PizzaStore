@@ -1,4 +1,5 @@
 .hd{
+<<<<<<< HEAD
   font-size: 25px;
   font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
   color: darkgreen;
@@ -8,4 +9,26 @@
   font-size: 20px;
   font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
   margin-left: 20px;
+=======
+  font-size: 12px;
+  font-family: 'Vollkorn', serif;
+  color: rgb(48, 47, 47);
+}
+
+.hd2{
+  font-size: 12px;
+  font-family: 'Vollkorn', serif;
+  margin-left: 20px;
+  color: rgb(48, 47, 47);
+}
+
+.btn{
+  color: black;
+  font-size: 15px;
+  font-family: 'Vollkorn', serif;
+}
+.btn:hover{
+  color: red;
+
+>>>>>>> 0eb9ce3... NazarCommit
 }

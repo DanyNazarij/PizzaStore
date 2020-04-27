@@ -30,6 +30,10 @@ import { SortProductPipe } from './pipes/sort-product.pipe';
 import { CartComponent } from './cart/cart.component';
 import {NgxPaginationModule} from "ngx-pagination";
 import { MakeOrderComponent } from './make-order/make-order.component';
+<<<<<<< HEAD
+=======
+import { GalleryComponent } from './gallery/gallery.component';
+>>>>>>> 0eb9ce3... NazarCommit
 
 
 @NgModule({
@@ -58,6 +62,10 @@ import { MakeOrderComponent } from './make-order/make-order.component';
     SortProductPipe,
     CartComponent,
     MakeOrderComponent,
+<<<<<<< HEAD
+=======
+    GalleryComponent,
+>>>>>>> 0eb9ce3... NazarCommit
   ],
     imports: [
         BrowserModule,

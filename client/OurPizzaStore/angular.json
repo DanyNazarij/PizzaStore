@@ -127,5 +127,13 @@
       }
     }
   },
+<<<<<<< HEAD
   "defaultProject": "OurPizzaStore"
 }
+=======
+  "defaultProject": "OurPizzaStore",
+  "cli": {
+    "analytics": "9e663add-acd4-486e-83e9-467f5646bd29"
+  }
+}
+>>>>>>> 0eb9ce3... NazarCommit

@@ -47,7 +47,11 @@ start();
 
 async function start(){
     try{
+<<<<<<< HEAD
         await mongoose.connect(`mmongodb://localhost:27017/pizzaStore`, {
+=======
+        await mongoose.connect(`mongodb://localhost:27017/pizzaStore`, {
+>>>>>>> 0eb9ce3... NazarCommit
             useNewUrlParser: true,
             useUnifiedTopology: true
         }, function(err){

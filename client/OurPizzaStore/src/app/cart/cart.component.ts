@@ -76,9 +76,16 @@ export class CartComponent implements OnInit, OnDestroy {
 
 
     //не працюэ
+<<<<<<< HEAD
     alertify.set('notifier','position', 'top-center');
     alertify.success('Current position : ' + alertify.get('notifier','position'));
     alertify.notify('sample', 'success', 5, function(){  console.log('dismissed'); });
+=======
+    alertify.alert().close(); 
+    // alertify.set('notifier','position', 'top-left');
+  //  alertify.success('Current position : ' + alertify.get('notifier','position'));
+    // alertify.notify('sample', 'success', 5, function(){  console.log('dismissed'); });
+>>>>>>> 0eb9ce3... NazarCommit
   }
 
 
